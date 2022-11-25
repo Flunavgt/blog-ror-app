@@ -17,7 +17,7 @@ RSpec.describe User, type: :author do
 
   it 'Last 3 post marked as empty' do
     second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                              bio: 'Teacher from Poland.')
+                              bio: 'Teacher Poland.')
     expect(second_user.recent_post).to eq([])
   end
 end
