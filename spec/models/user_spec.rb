@@ -14,10 +14,4 @@ RSpec.describe User, type: :author do
     subject.posts_counter = -2
     expect(subject).to_not be_valid
   end
-
-  it 'Last 3 post marked as empty' do
-    second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                              bio: 'Teacher Poland.')
-    expect(second_user.recent_post).to eq([])
-  end
 end
