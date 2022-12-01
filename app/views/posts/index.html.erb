@@ -1,7 +1,40 @@
-<h1>All posts go here</h1>
-<p>this is a test 2</p>
-<% @posts.each do |post| %>
+<main>
 
-  <p>Title: <%= post.title %></p>
-  <p>Author: <%= post.text %></p>
-<% end %>
+  <section>
+    <div class="user-header">
+      <div class="img_div">
+        <img src="<%= @user.photo %>" />
+      </div>
+      <div class="info_div">
+        <h1><%= @user.name %></h1> 
+        <span>Number of posts: <%= @user.posts_counter%></span>
+      </div>
+    </div>
+    <% @count = 0 %>
+    <%@posts.each do |post|%>
+      <div class="single-post">
+        <%= link_to user_post_path(@user, post) do%>
+          <div class="user-post-preview">
+          <h2>Post #<%= @count += 1 %></h2>
+            <h3><%= post.title%></h3>
+            <p><%= post.text %></p>
+            <p class="post-data">
+              <span>Comments: <%= post.comments_counter %></span>
+              <span>Likes: <%= post.likes_counter %></span>
+            </p>
+          </div>
+          <div class="post-comments-preview">
+            <h2>Comments</h2>
+            <% post.last_five_comments.each do |comment| %>
+              <p>Comment from <%=comment.author.name %>: <%=comment.text %></p>
+            <% end %>
+          </div>
+        <%end%>
+      </div>
+    <%end%>
+
+    <button>Pagination</button>
+
+  </section>
+
+</main>
