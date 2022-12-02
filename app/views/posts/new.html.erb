@@ -1,0 +1,15 @@
+<%# posts#new %>
+<main>
+  <h1>New Post</h1>
+
+
+<%= form_with model: Post, url: user_posts_path, method: :post, local:true do |f|%>
+    <div>
+      <%= f.text_field :title, placeholder: "Title", class: "post-input"%>
+    </div>
+    <div>
+      <%= f.text_area :text, placeholder: "Text goes here" %>
+    </div>
+    <%= f.submit "Post", class: 'btn'%>
+  <% end %>
+<main>
