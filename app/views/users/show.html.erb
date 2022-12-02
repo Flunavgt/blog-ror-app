@@ -1,4 +1,4 @@
-
+<%# users#show %>
 <main>
   <section>
       <div class="user-header">
@@ -12,6 +12,7 @@
           <span>
             Number of posts: <%= @user.posts_counter %>
           </span>
+           <%=link_to 'Add Post', "/users/#{@user[:id]}/posts/new" %>
         </div>
       </div>
 
