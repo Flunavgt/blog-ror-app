@@ -1,28 +1,47 @@
 require 'rails_helper'
 
-RSpec.describe 'Test Index Page', type: :feature do
-  describe 'GET index' do
+RSpec.describe 'posts#index', type: :feature do
+  describe 'Post' do
     before(:each) do
-      @first_user = User.create(name: 'Aleazar', photo: 'Aleazar.png', bio: 'bio1', posts_counter: 4)
-      @first_user.save!
-      @second_user = User.create(name: 'Fedrico', photo: 'Fedrico.png', bio: 'bio2', posts_counter: 5)
-      @second_user.save!
-      @third_user = User.create(name: 'Fedrico Second', photo: 'Fedrico.png', bio: 'bio3', posts_counter: 2)
-      @third_user.save!
+      @user1 = User.create(name: 'Aleazar', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio', posts_counter: 0)
+      @user1.save!
+      visit root_path
+
+      @post1 = Post.create(title: 'First Post', text: 'This is my first post', comments_counter: 0, likes_counter: 3,
+                           author: @user1)
+      @post2 = Post.create(title: 'Second Post', text: 'This is my second post', comments_counter: 0, likes_counter: 0,
+                           author: @user1)
+      @post3 = Post.create(title: 'Third Post', text: 'This is my third post', comments_counter: 0, likes_counter: 0,
+                           author: @user1)
+      @comment1 = Comment.create(text: 'Comment first', author: User.first,
+                                 post: @post1)
+      @comment2 = Comment.create(text: 'Comment another', author: User.first, post: @post1)
+      @comment3 = Comment.create(text: 'Comment new', author: User.first, post: @post1)
+    end
+    it "shows user's profile picture" do
+      visit(user_path(@user1.id))
+      expect(page).to have_css('img[src*="https://picsum.photos/seed/picsum/536/354"]')
     end
 
     it 'shows the users username' do
-      visit root_path
+      visit(user_path(@user1.id))
       expect(page).to have_content('Aleazar')
-      expect(page).to have_content('Fedrico')
-      expect(page).to have_content('Fedrico Second')
     end
 
-    it 'shows the number of posts of each user' do
-      visit root_path
-      expect(page).to have_content('4')
-      expect(page).to have_content('5')
-      expect(page).to have_content('2')
+    it 'shows number of posts of user has written' do
+      visit(user_path(@user1.id))
+      expect(@user1.posts_counter).to eql(3)
+    end
+
+    it 'shows number of posts by user' do
+      visit(user_posts_path(@user1.id))
+      expect(page).to have_content('posts: 3')
+    end
+
+    it "When I click on a user, it redirects me to that user's show page" do
+      visit '/users'
+      click_link @user1.name
+      expect(page).to have_current_path(user_path(@user1))
     end
   end
 end
