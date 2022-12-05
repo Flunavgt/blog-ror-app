@@ -3,11 +3,15 @@ require 'rails_helper'
 RSpec.describe 'Post show', type: :feature do
   describe 'Post' do
     before(:each) do
-      @user1 = User.create(name: 'Aleazar', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio', posts_counter: 0)
+      @user1 = User.create(name: 'Aleazar', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio',
+                           posts_counter: 0)
       @user1.save!
-      @user2 = User.create(name: 'Yilma', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio', posts_counter: 0)
-      @user3 = User.create(name: 'Fedrico', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio', posts_counter: 0)
-      @user4 = User.create(name: 'Fedrico Second', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio', posts_counter: 0)
+      @user2 = User.create(name: 'Yilma', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio',
+                           posts_counter: 0)
+      @user3 = User.create(name: 'Fedrico', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio',
+                           posts_counter: 0)
+      @user4 = User.create(name: 'Fedrico Second', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio',
+                           posts_counter: 0)
 
       visit root_path
 

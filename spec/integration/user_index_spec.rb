@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'posts#index', type: :feature do
   describe 'Post' do
     before(:each) do
-      @user1 = User.create(name: 'Aleazar', photo: 'https://picsum.photos/seed/picsum/536/354', bio: 'bio', posts_counter: 0)
+      @user1 = User.create(name: 'Aleazar', photo: 'https://picsum.photos/seed/picsum/536/354',
+                           bio: 'bio', posts_counter: 0)
       @user1.save!
       visit root_path
 

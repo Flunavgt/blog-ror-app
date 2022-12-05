@@ -9,15 +9,15 @@
 #       end
 #     end
 
-    # it 'checks if the correct themplate was rendered' do
-    #   get 'http://localhost:3000/users/2/posts'
-    #   expect(response).to render_template(:index)
-    # end
+# it 'checks if the correct themplate was rendered' do
+#   get 'http://localhost:3000/users/2/posts'
+#   expect(response).to render_template(:index)
+# end
 
-    # it 'return success' do
-    #   get 'http://localhost:3000/users/2/posts'
-    #   expect(response).to have_http_status(:success)
-    # end
+# it 'return success' do
+#   get 'http://localhost:3000/users/2/posts'
+#   expect(response).to have_http_status(:success)
+# end
 
 #     it 'checks  correct placeholder text' do
 #       get 'http://localhost:3000/users/2/posts'
