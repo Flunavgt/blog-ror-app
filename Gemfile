@@ -52,6 +52,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'figaro'
 
+gem 'devise'
+
 gem 'bullet', group: 'development'
 
 group :development, :test do
