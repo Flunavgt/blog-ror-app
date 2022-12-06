@@ -12,7 +12,7 @@
           </div>
           <div class="post-comments-preview">
           <h2>Comments</h2>
-          <%=link_to 'Invited Add Comment', "/users/#{@user[:id]}/posts/#{@post[:id]}/comments/new", class: "newComm" %>
+          <%=link_to 'Add Comment', "/users/#{@user[:id]}/posts/#{@post[:id]}/comments/new", class: "newComm" %>
             <% @post.comments.each do |comment| %>
               <p>Comment from <%=comment.author.name %>: <%=comment.text %></p>
             <% end %>
