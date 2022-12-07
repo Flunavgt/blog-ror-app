@@ -52,7 +52,11 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'figaro'
 
+gem 'devise'
+
 gem 'bullet', group: 'development'
+
+gem 'rails-i18n', '~> 7.0.0'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
