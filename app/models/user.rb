@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :posts_counter, comparison: { greater_than_or_equal_to: 0 }
 
   def recent_post
-    posts.order('created_at Desc').limi
+    posts.order('created_at Desc').limit(3)
   end
 
   def admin?
