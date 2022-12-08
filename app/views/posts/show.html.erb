@@ -9,13 +9,19 @@
             </p>
             <p><%= @post.text %></p>
              <%= render "likes/create" %>
+             <% if can? :destroy, @post %>
+            <%= button_to "Delete Post", user_post_path(@post.author, @post), method: :delete, class: "button" %>
+        <% end %>
           </div>
           <div class="post-comments-preview">
           <h2>Comments</h2>
           <%=link_to 'Add Comment', "/users/#{@user[:id]}/posts/#{@post[:id]}/comments/new", class: "newComm" %>
             <% @post.comments.each do |comment| %>
               <p>Comment from <%=comment.author.name %>: <%=comment.text %></p>
+               <% if can? :destroy, comment %>
+            <%= button_to "Delete", user_post_comment_path(comment.author, comment.post,comment), method: :delete %>
             <% end %>
+              <% end %>
           </div>
       </div>
   </section>
