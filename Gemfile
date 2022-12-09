@@ -62,6 +62,8 @@ gem 'cancancan'
 
 gem 'jwt'
 
+gem 'rswag'
+
 gem 'bcrypt'
 
 group :development, :test do
