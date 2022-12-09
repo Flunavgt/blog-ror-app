@@ -9,7 +9,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def current_user
-    return unless request.headers.include? "Authorization"
+    return unless request.headers.include? 'Authorization'
 
     @current_user ||= User.find(payload['user_id'])
   end
